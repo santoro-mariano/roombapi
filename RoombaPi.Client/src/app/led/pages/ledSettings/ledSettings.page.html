@@ -1,0 +1,89 @@
+<mat-card>
+  <mat-card-header>ASCII LED's</mat-card-header>
+  <mat-card-content>
+    <mat-form-field>
+      <input matInput (keypress)="onAsciiKeyPress($event)" placeholder="Value">
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary">Send</button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>Scheduling LED's</mat-card-header>
+  <mat-card-content>
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <mat-slide-toggle>Sunday</mat-slide-toggle>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-slide-toggle>Monday</mat-slide-toggle>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-slide-toggle>Tuesday</mat-slide-toggle>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-slide-toggle>Wednesday</mat-slide-toggle>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-slide-toggle>Thursday</mat-slide-toggle>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-slide-toggle>Friday</mat-slide-toggle>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-slide-toggle>Saturday</mat-slide-toggle>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>Main Buttons LED's</mat-card-header>
+  <mat-card-content>
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <mat-slide-toggle>Spot</mat-slide-toggle>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-slide-toggle>Dock</mat-slide-toggle>
+      </mat-list-item>
+    </mat-list>
+    <section class="power-led-container">
+      <header>Power</header>
+      <table>
+        <tbody>
+        <tr>
+          <td>Green</td>
+          <td>
+            <mat-slider></mat-slider>
+          </td>
+          <td>Red</td>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>
+            <mat-slider></mat-slider>
+          </td>
+          <td>1</td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>Other LED's</mat-card-header>
+  <mat-card-content>
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <mat-slide-toggle>Debris</mat-slide-toggle>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-slide-toggle>Check Robot</mat-slide-toggle>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

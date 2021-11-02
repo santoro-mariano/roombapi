@@ -1,0 +1,7 @@
+<mat-chip-list aria-label="Song">
+  <mat-chip color="primary" selected *ngFor="let note of notes" (click)="playNote(note)">
+    <span class="note">{{note.midiNote | note}}</span>
+    <span class="info"> Duration: {{note.duration}}s</span>
+    <fa-icon [icon]="closeIcon"></fa-icon>
+  </mat-chip>
+</mat-chip-list>

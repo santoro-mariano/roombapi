@@ -1,0 +1,38 @@
+<mat-toolbar>
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <app-roomba-icon [alternative]="true"></app-roomba-icon>
+  </button>
+  <span>Roomba Pi</span>
+  <span class="spacer"></span>
+  <app-battery-icon></app-battery-icon>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav mode="push" #sidenav>
+    <ul>
+      <li><a routerLink="dashboard" routerLinkActive="active" (click)="sidenav.close()">
+        <fa-icon [icon]="dashboardIcon" [fixedWidth]="true"></fa-icon>
+        Dashboard</a></li>
+      <li><a routerLink="scheduler/clock" routerLinkActive="active" (click)="sidenav.close()">
+        <fa-icon [icon]="clockIcon" [fixedWidth]="true"></fa-icon>
+        Clock</a></li>
+      <li><a routerLink="scheduler/schedule" routerLinkActive="active" (click)="sidenav.close()">
+        <fa-icon [icon]="scheduleIcon" [fixedWidth]="true"></fa-icon>
+        Schedule</a></li>
+      <li><a routerLink="cleaner/manual" routerLinkActive="active" (click)="sidenav.close()">
+        <fa-icon [icon]="advancedCleaningIcon" [fixedWidth]="true"></fa-icon>
+        Manual Cleaning</a></li>
+      <li><a routerLink="music/composer" routerLinkActive="active" (click)="sidenav.close()">
+        <fa-icon [icon]="composerIcon" [fixedWidth]="true"></fa-icon>
+        Music Composer</a></li>
+      <li><a routerLink="led/settings" routerLinkActive="active" (click)="sidenav.close()">
+        <fa-icon [icon]="ledsIcon" [fixedWidth]="true"></fa-icon>
+        LED's</a></li>
+      <li><a routerLink="device/info" routerLinkActive="active" (click)="sidenav.close()">
+        <fa-icon [icon]="deviceIcon" [fixedWidth]="true"></fa-icon>
+        Device Info</a></li>
+    </ul>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

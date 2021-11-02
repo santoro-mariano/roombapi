@@ -1,0 +1,23 @@
+:host {
+  display: inline-block;
+
+  .button {
+    cursor: pointer;
+
+    &:hover {
+      & > ellipse, & > path {
+        fill: #B2B2B2;
+      }
+    }
+
+    &:active {
+      & > ellipse, & > path {
+        fill: #8C8C8C;
+      }
+    }
+
+    text {
+      user-select: none;
+    }
+  }
+}

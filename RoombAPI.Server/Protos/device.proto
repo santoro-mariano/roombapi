@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option csharp_namespace = "RoombaPi.Grpc";
+
+package Roomba;
+
+service Device {
+    rpc GetFirmwareInfo(google.protobuf.Empty) returns (FirmwareInfoResponse);
+    rpc Start(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc Reset(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc Stop(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc GetMode(google.protobuf.Empty) returns (GetModeResponse);
+    rpc PowerDown(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc GetButtonPressStatus(google.protobuf.Empty) returns (ButtonPressStatusResponse);
+}
+
+enum Mode {
+    MODE_UNSPECIFIED = 0;
+    MODE_OFF = 1;
+    MODE_PASIVE = 2;
+    MODE_SAFE = 3;
+    MODE_FULL = 4;
+}
+
+message FirmwareInfoResponse {
+    string version = 1;
+}
+
+message SetModeResponse {
+    Mode mode = 1;
+}
+
+message GetModeResponse {
+    Mode mode = 1;
+}
+
+message ButtonPressStatusResponse {
+    bool clean = 1;
+    bool spot = 2;
+    bool dock = 3;
+    bool minute = 4;
+    bool hour = 5;
+    bool day = 6;
+    bool schedule = 7;
+    bool clock = 8;
+}

@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option csharp_namespace = "RoombaPi.Grpc";
+
+package Roomba;
+
+service Driver {
+    rpc DriveStraight(DriveStraightRequest) returns (google.protobuf.Empty);
+    rpc Drive(DriveRequest) returns (google.protobuf.Empty);
+    rpc DriveDirect(DriveDirectRequest) returns (google.protobuf.Empty);
+    rpc DrivePWM(DrivePWMRequest) returns (google.protobuf.Empty);
+    rpc SeekDock(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc GetWheelsInfo(google.protobuf.Empty) returns (WheelsInfoResponse);
+    rpc GetDistance(google.protobuf.Empty) returns (DistanceResponse);
+    rpc GetAngle(google.protobuf.Empty) returns (AngleResponse);
+    rpc GetRequestedValues(google.protobuf.Empty) returns (RequestedValuesResponse);
+}
+
+enum WheelPositionStatus {
+    WHEELPOSITIONSTATUS_UNSPECIFIED = 0;
+    WHEELPOSITIONSTATUS_RAISED = 1;
+    WHEELPOSITIONSTATUS_DROPPED = 2;
+}
+
+message DriveStraightRequest {
+    int32 velocity = 1;
+}
+
+message DriveRequest {
+    int32 velocity = 1;
+    int32 radius = 2;
+}
+
+message DriveDirectRequest {
+    int32 left_velocity = 1;
+    int32 right_velocity = 2;
+}
+
+message DrivePWMRequest {
+    int32 right_pwm = 1;
+    int32 left_pwm = 2;
+}
+
+message SideWheelInfo {
+    WheelPositionStatus position_status = 1;
+    int32 current = 2;
+    bool overcurrent = 3;
+}
+
+message StasisStatus {
+    bool moving_forward = 1;
+    bool error_sensor = 2;
+}
+
+message WheelsInfoResponse {
+    SideWheelInfo left_wheel = 1;
+    SideWheelInfo right_wheel = 2;
+    StasisStatus stasis_status = 3;
+}
+
+message DistanceResponse {
+    double distance = 1;
+}
+
+message AngleResponse {
+    double angle = 1;
+}
+
+message RequestedValuesResponse {
+    int32 velocity = 1;
+    int32 radius = 2;
+    int32 left_velocity = 3;
+    int32 right_velocity = 4;
+}

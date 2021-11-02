@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option csharp_namespace = "RoombaPi.Grpc";
+
+package Roomba;
+
+service Cleaner {
+    rpc StartSideBrush(StartSideBrushRequest) returns (google.protobuf.Empty);
+    rpc StopSideBrush(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc GetSideBrushInfo(google.protobuf.Empty) returns (GetSideBrushInfoResponse);
+    rpc StartMainBrush(StartMainBrushInfoRequest) returns (google.protobuf.Empty);
+    rpc StopMainBrush(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc GetMainBrushInfo(google.protobuf.Empty) returns (GetMainBrushInfoResponse);
+    rpc StartVacuum(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc StopVacuum(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc Clean(CleanRequest) returns (google.protobuf.Empty);
+    rpc ReadDirtSensor(google.protobuf.Empty) returns (DirtSensorResponse);
+}
+
+message StartSideBrushRequest {
+    bool inverse = 1;
+}
+
+message GetSideBrushInfoResponse {
+    int32 current = 1;
+    bool overcurrent = 2;
+}
+
+message StartMainBrushInfoRequest {
+    bool inverse = 1;
+}
+
+message GetMainBrushInfoResponse {
+    int32 current = 1;
+    bool overcurrent = 2;
+}
+
+enum CleanType {
+    CLEANTYPE_NORMAL = 0;
+    CLEANTYPE_MAX = 1;
+    CLEANTYPE_SPOT = 2;
+}
+
+message CleanRequest {
+    CleanType type = 1;
+}
+
+message DirtSensorResponse {
+    int32 value = 1;
+}

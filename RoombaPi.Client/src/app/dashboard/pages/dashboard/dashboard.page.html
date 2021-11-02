@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-card-content>
+    <app-main-buttons (clean)="onCleanClick()"
+                      (dock)="onDockClick()"
+                      (spot)="onSpotClick()"></app-main-buttons>
+  </mat-card-content>
+</mat-card>
+<mat-card>
+  <mat-card-header>BATTERY INFO</mat-card-header>
+  <mat-card-content>
+    <app-battery-info></app-battery-info>
+  </mat-card-content>
+</mat-card>
+<mat-card>
+  <mat-card-header>BUMPERS MAP</mat-card-header>
+  <mat-card-content>
+    <app-bumper-status-map></app-bumper-status-map>
+  </mat-card-content>
+</mat-card>

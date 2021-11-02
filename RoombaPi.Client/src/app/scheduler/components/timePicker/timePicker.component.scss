@@ -1,0 +1,21 @@
+:host {
+  display: inline-block;
+
+  mat-form-field {
+    &:not(:first-of-type) {
+      margin-left: 10px;
+    }
+
+    &.hour-select {
+      width: 60px;
+    }
+
+    &.minute-select {
+      width: 80px;
+    }
+
+    &.period-select {
+      width: 70px;
+    }
+  }
+}

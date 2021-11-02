@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option csharp_namespace = "RoombaPi.Grpc";
+
+package Roomba;
+
+service Led {
+    rpc SetAscii(SetAsciiRequest) returns (google.protobuf.Empty);
+    rpc SetScheduling(SetSchedulingRequest) returns (google.protobuf.Empty);
+    rpc SetDebris(SetLedRequest) returns (google.protobuf.Empty);
+    rpc SetSpot(SetLedRequest) returns (google.protobuf.Empty);
+    rpc SetDock(SetLedRequest) returns (google.protobuf.Empty);
+    rpc SetCheckRobot(SetLedRequest) returns (google.protobuf.Empty);
+    rpc SetPower(SetPowerLedRequest) returns (google.protobuf.Empty);
+}
+
+message SetAsciiRequest {
+    int32 char_1 = 1;
+    int32 char_2 = 2;
+    int32 char_3 = 3;
+    int32 char_4 = 4;
+}
+
+message SetSchedulingRequest {
+    bool sunday = 1;
+    bool monday = 2;
+    bool tuesday = 3;
+    bool wednesday = 4;
+    bool thursday = 5;
+    bool friday = 6;
+    bool saturday = 7;
+}
+
+message SetLedRequest {
+    bool status = 1;
+}
+
+message SetPowerLedRequest {
+    int32 color = 1;
+    int32 intensity = 2;
+}

@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-header>Current Values</mat-card-header>
+  <mat-card-content>
+    <p>12:00 AM<span class="description">Device Time</span></p>
+    <p>12:00 AM<span class="description">System Time</span></p>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-header>Clock adjust</mat-card-header>
+  <mat-card-content class="form-container">
+    <app-time-picker></app-time-picker>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary">Set</button>
+    <button mat-raised-button color="accent">Get time from System</button>
+  </mat-card-actions>
+</mat-card>

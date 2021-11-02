@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Device Mode</h1>
+<div mat-dialog-content>
+  <p>Select Mode:</p>
+  <mat-form-field>
+    <mat-label>Modes</mat-label>
+    <mat-select [(ngModel)]="selectedMode">
+      <mat-option [value]="modeEnum.off">{{modeEnum[modeEnum.off] | titlecase}}</mat-option>
+      <mat-option [value]="modeEnum.pasive">{{modeEnum[modeEnum.pasive] | titlecase}}</mat-option>
+      <mat-option [value]="modeEnum.safe">{{modeEnum[modeEnum.safe] | titlecase}}</mat-option>
+      <mat-option [value]="modeEnum.full">{{modeEnum[modeEnum.full] | titlecase}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-button [mat-dialog-close]="selectedMode" cdkFocusInitial>Set</button>
+</div>

@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option csharp_namespace = "RoombaPi.Grpc";
+
+package Roomba;
+
+service Scheduler {
+    rpc GetClock(google.protobuf.Empty) returns (GetClockResponse);
+    rpc SetSchedule(SetScheduleRequest) returns (google.protobuf.Empty);
+    rpc GetSchedule(google.protobuf.Empty) returns (GetScheduleResponse);
+    rpc ClearSchedule(google.protobuf.Empty) returns (google.protobuf.Empty);
+}
+
+enum WeekDay {
+    WEEKDAY_UNSPECIFIED = 0;
+    WEEKDAY_SUNDAY = 1;
+    WEEKDAY_MONDAY = 2;
+    WEEKDAY_TUESDAY = 3;
+    WEEKDAY_WEDNESDAY = 4;
+    WEEKDAY_THURSDAY = 5;
+    WEEKDAY_FRIDAY = 6;
+    WEEKDAY_SATURDAY = 7;
+}
+
+message ScheduleDay {
+    WeekDay day = 1;
+    int32 hour = 2;
+    int32 minute = 3;
+}
+
+message SetClockRequest {
+    WeekDay day = 1;
+    int32 hour = 2;
+    int32 minute = 3;
+}
+
+message GetClockResponse {
+    WeekDay day = 1;
+    int32 hour = 2;
+    int32 minute = 3;
+}
+
+message SetScheduleRequest {
+    repeated ScheduleDay days = 1;
+}
+
+message GetScheduleResponse {
+    repeated ScheduleDay days = 1;
+}

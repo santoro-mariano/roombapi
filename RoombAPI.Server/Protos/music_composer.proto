@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option csharp_namespace = "RoombaPi.Grpc";
+
+package Roomba;
+
+service MusicComposer {
+    rpc SetSong(SetSongRequest) returns (google.protobuf.Empty);
+    rpc GetSong(GetSongRequest) returns (GetSongResponse);
+    rpc PlaySong(PlaySongRequest) returns (google.protobuf.Empty);
+    rpc GetSelectedSong(google.protobuf.Empty) returns (SelectedSongResponse);
+    rpc IsSongPlaying(google.protobuf.Empty) returns (IsSongPlayingResponse);
+}
+
+message Note {
+    int32 number = 1;
+    double duration = 2;
+}
+
+message SetSongRequest {
+    int32 song_index = 1;
+    repeated Note notes = 2;
+}
+
+message GetSongRequest {
+    int32 song_index = 1;
+}
+
+message GetSongResponse {
+    repeated Note notes = 1;
+}
+
+message PlaySongRequest {
+    int32 song_index = 1;
+}
+
+message SelectedSongResponse {
+    int32 song_index = 1;
+}
+
+message IsSongPlayingResponse {
+    bool song_playing = 1;
+}

@@ -1,0 +1,14 @@
+:host {
+  display: inline-block;
+
+  .bumper {
+    fill: #374046;
+    stroke: #374046;
+    transition: fill 0.2s ease-out, stroke 0.2s ease-out;
+
+    &.active {
+      fill: #F7756A;
+      stroke: #F34336;
+    }
+  }
+}

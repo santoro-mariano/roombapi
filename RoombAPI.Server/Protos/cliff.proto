@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option csharp_namespace = "RoombaPi.Grpc";
+
+package Roomba;
+
+service Cliff {
+    rpc GetCliffSensorsStatus(google.protobuf.Empty) returns (CliffSensorsStatusResponse);
+}
+
+message CliffSensorInfo {
+    bool active = 1;
+    uint32 signal = 2;
+}
+
+message CliffSensorsStatusResponse {
+    CliffSensorInfo left = 1;
+    CliffSensorInfo front_left = 2;
+    CliffSensorInfo front_right = 3;
+    CliffSensorInfo right = 4;
+}

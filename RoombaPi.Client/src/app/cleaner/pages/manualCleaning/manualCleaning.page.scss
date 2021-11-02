@@ -1,0 +1,51 @@
+:host {
+  mat-card {
+    &:not(:first-of-type) {
+      margin-top: 25px;
+    }
+
+    .control-panel {
+      display: flex;
+      align-items: center;
+
+      app-joystick {
+        flex: 1 1 auto;
+      }
+
+      .switches {
+        flex: 0 0 auto;
+
+        mat-slide-toggle {
+          display: block;
+          padding: 5px;
+        }
+      }
+    }
+
+    p {
+      margin: 0;
+      text-align: center;
+      width: 50%;
+      box-sizing: border-box;
+      display: inline-block;
+      padding: 3px;
+
+      &:not(:first-of-type) {
+        margin-top: 20px;
+      }
+
+      &.full-row {
+        width: 100%;
+      }
+
+      .description {
+        display: block;
+        border-top: 1px solid;
+        font-size: 0.85em;
+        margin-top: 4px;
+        opacity: 0.5;
+        padding-top: 2px;
+      }
+    }
+  }
+}

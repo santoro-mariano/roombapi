@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option csharp_namespace = "RoombaPi.Grpc";
+
+package Roomba;
+
+service Battery {
+    rpc GetBatteryInfo(google.protobuf.Empty) returns (BatteryInfoResponse);
+    rpc GetChargingState(google.protobuf.Empty) returns (ChargingStateResponse);
+    rpc GetChargingSourcesAvailable(google.protobuf.Empty) returns (ChargingSourcesAvailableResponse);
+}
+
+message BatteryInfoResponse {
+    int32 voltage = 1;
+    int32 current = 2;
+    int32 temperature = 3;
+    int32 charge = 4;
+    int32 capacity = 5;
+}
+
+enum ChargingState {
+    CHARGINGSTATE_UNSPECIFIED = 0;
+    CHARGINGSTATE_NOTCHARGING = 1;
+    CHARGINGSTATE_RECONDITIONINGCHARGING = 2;
+    CHARGINGSTATE_FULLCHARGING = 3;
+    CHARGINGSTATE_TRICKLECHARGING = 4;
+    CHARGINGSTATE_WAITING = 5;
+    CHARGINGSTATE_CHARGINGFAULTCONDITION = 6;
+}
+
+message ChargingStateResponse {
+    ChargingState state = 1;
+}
+
+message ChargingSourcesAvailableResponse {
+    bool home_base = 1;
+    bool internal_charger = 2;
+}

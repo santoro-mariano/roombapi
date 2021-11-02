@@ -1,0 +1,2 @@
+$location = Get-Location
+./protoc/protoc --plugin=protoc-gen-ts=$location/node_modules/.bin/protoc-gen-ts.cmd --js_out=import_style=commonjs,binary:src/app/grpc/proto --ts_out=service=grpc-web:src/app/grpc/proto -I ./../protos ./../protos/*.proto

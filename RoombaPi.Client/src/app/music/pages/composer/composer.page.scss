@@ -1,0 +1,20 @@
+:host {
+  mat-card {
+    &:not(:first-of-type) {
+      margin-top: 25px;
+    }
+
+    .select-song-container {
+      display: flex;
+      flex-direction: column;
+
+      & > * {
+        width: 100%;
+      }
+    }
+
+    .song-container {
+      padding-top: 15px;
+    }
+  }
+}

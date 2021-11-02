@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option csharp_namespace = "RoombaPi.Grpc";
+
+package Roomba;
+
+service Bumper {
+    rpc GetBumpsStatus(google.protobuf.Empty) returns (BumpsStatusResponse);
+    rpc GetLightBumpersStatus(google.protobuf.Empty) returns (LightBumpersStatusResponse);
+    rpc IsVirtualWallPresent(google.protobuf.Empty) returns (IsVirtualWallPresentResponse);
+}
+
+message BumpsStatusResponse {
+    bool left = 1;
+    bool right = 2;
+}
+
+message LightBumperInfo {
+    bool active = 1;
+    float signal = 2;
+}
+
+message LightBumpersStatusResponse {
+    LightBumperInfo left = 1;
+    LightBumperInfo front_left = 2;
+    LightBumperInfo center_left = 3;
+    LightBumperInfo center_right = 4;
+    LightBumperInfo front_right = 5;
+    LightBumperInfo right = 6;
+}
+
+message IsVirtualWallPresentResponse {
+    bool virtual_wall_present = 1;
+}

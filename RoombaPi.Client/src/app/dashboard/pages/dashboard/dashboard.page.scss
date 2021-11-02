@@ -1,0 +1,26 @@
+:host {
+  display: block;
+
+  mat-card {
+    text-align: center;
+
+    mat-card-header {
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+
+    &:not(:first-of-type) {
+      margin-top: 25px;
+    }
+
+    app-main-buttons {
+      width: 150px;
+      height: 150px;
+    }
+
+    app-bumper-status-map {
+      width: 250px;
+      height: 250px;
+    }
+  }
+}

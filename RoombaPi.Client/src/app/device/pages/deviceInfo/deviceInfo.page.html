@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-content>
+    <p>{{firmwareVersion | async}}<span class="description">Firware Version</span></p>
+    <p>{{deviceMode | async}}<span class="description">Mode</span></p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="reset()">
+      Reset
+    </button>
+    <button mat-raised-button color="accent" (click)="selectMode()">
+      Change Mode
+    </button>
+  </mat-card-actions>
+</mat-card>
